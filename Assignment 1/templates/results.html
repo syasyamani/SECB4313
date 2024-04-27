@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tumor Microenvironment Simulation Results</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      color: #333; /* Default text color for light mode */
+    }
+    
+    .container {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 1rem;
+      background-color: #fff;
+      border-radius: 4px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+    
+    .header {
+      text-align: center;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #ddd;
+    }
+    
+    .parameters {
+      margin-bottom: 1rem;
+    }
+    
+    .parameters p {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+    }
+    
+    .plot-container {
+      text-align: center;
+    }
+    
+    .plot-container img {
+      width: 100%; /* Adjust width as needed */
+    }
+
+    /* Dark mode styles */
+    @media (prefers-color-scheme: dark) {
+      body {
+        background-color: #222;
+        color: #ddd; /* Text color for dark mode */
+      }
+      
+      .container {
+        background-color: #333;
+        border-color: #111;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+      }
+      
+      .header,
+      .parameters,
+      .plot-container {
+        border-color: #444;
+      }
+      
+      .parameters p {
+        color: #eee;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="header">Tumor Microenvironment Simulation Results</h1>
+    <div class="parameters">
+      <p>Simulated using the following parameters:</p>
+      <ul>
+        <li>CTL Initial: {{ rC }}</li>  
+        <li>Th Initial: {{ dC }}</li>  
+        <li>IL-2 Initial: {{ rH }}</li>  
+        <li>Tumour Initial: {{ kIL }}</li>  
+        <li>ISF Initial: {{ kCT }}</li>  
+        <li>Simulation Time: {{ s }}</li>  
+        <li>Time Step: {{ K }}</li>  </ul>
+      </ul>
+    </div>
+    <div class="plot-container">
+      <img src="{{ url_for('static', filename='plot.png') }}" alt="Plot">
+    </div>
+  </div>
+</body>
+</html>
